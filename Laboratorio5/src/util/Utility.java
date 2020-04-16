@@ -7,6 +7,8 @@ package util;
 
 import domain.SinglyLinkedList;
 import java.text.DecimalFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
  *
@@ -37,6 +39,10 @@ public class Utility {
         return new DecimalFormat("#,##0.00'%'")
                 .format(value);
     }
+     
+     public static String dateFormat(Date date){
+         return new SimpleDateFormat("dd/MM/yyyy").format(date);
+     }
     
     public static String hhmmss(long start, long end){
         long milisegundos = end - start;

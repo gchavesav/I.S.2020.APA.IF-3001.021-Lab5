@@ -21,7 +21,7 @@ public class CircularLinkedList implements List {
     @Override
     public int size() throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = first;
         int count = 0;
@@ -46,7 +46,7 @@ public class CircularLinkedList implements List {
     @Override
     public boolean contains(Object element) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = first;
         //me muevo por la lista hasta el ultimo nodo
@@ -105,7 +105,7 @@ public class CircularLinkedList implements List {
     @Override
     public void remove(Object element) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         //Caso 1. El elemento a suprimir es el primero de la lista
         if(util.Utility.equals(first.data, element)){
@@ -141,7 +141,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object removeFirst() throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Object element = this.first.data;
         this.first = this.first.next; //muevo el apuntador al sgte nodo
@@ -153,7 +153,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object removeLast() throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = this.first;
         Node aux2 = first; //va a ser un apuntador al nodo anterior
@@ -175,7 +175,7 @@ public class CircularLinkedList implements List {
     @Override
     public int indexOf(Object element) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = first;
         int index=1; //el primer nodo va a estar en el indice 1
@@ -197,7 +197,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object getFirst() throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         return this.first.data;
     }
@@ -205,7 +205,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object getLast() throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         return last.data; //retorna el elemento almacenado en el ult nodo
     }
@@ -213,7 +213,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object getPrev(Object element) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         //Caso 1. Si es el inicio, no tiene anterior
         if(util.Utility.equals(first.data, element)){
@@ -237,7 +237,7 @@ public class CircularLinkedList implements List {
     @Override
     public Object getNext(Object element) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = first;
         while(aux!=last){
@@ -260,7 +260,7 @@ public class CircularLinkedList implements List {
     @Override
     public Node getNode(int index) throws ListException {
         if(this.isEmpty()){
-            throw new ListException("Singly Linked List is Empty");
+            throw new ListException("Circular Linked List is Empty");
         }
         Node aux = first;
         int i = 1; //posicion del primer nodo
