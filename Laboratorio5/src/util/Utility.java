@@ -8,6 +8,9 @@ package util;
 import domain.SinglyLinkedList;
 import java.text.DecimalFormat;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
 /**
@@ -126,5 +129,37 @@ public class Utility {
     
     public static char randomCharacter(){
         return (char)(random(91) + 65);
+    }
+    
+     public static boolean isBetween(int value, int low, int high) {
+        return low <= value && value <= high;
+    }
+     
+    public static int getAge(Date date){
+        DateTimeFormatter fmt = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate birthday = LocalDate.parse(dateFormat(date), fmt);
+        LocalDate now = LocalDate.now();
+        Period period = Period.between(birthday, now);
+        return period.getYears();
+    }
+     
+    public static String getFirstName(){
+        String lista[] = {"Ana", "Pedro", "Maria", "Juan", "Marcela", "Carlos", "Laura", "Carmen", "Pablo", "Fernanda",
+                          "Alexander", "Jaime", "Ariana", "Daniela", "Manuel", "Gabriel", "Valentina", "Esteban", "Karen",
+                          "Arturo", "Jose", "Sergio", "Jason", "Samuel"};
+        return lista[random(23)];
+    }
+    
+    public static String getLastName(){
+        String lista[] = {"Alvarado", "Gonzalez", "Perez", "Viquez", "Campos", "Chaves", "Vargas", "Garita", "Aguilera", "Mejia",
+                          "Aguero", "Alpizar", "Castro", "Vega", "Ulloa", "Jimenez", "Hidalgo", "Leiva", "Navarro",
+                          "Cantillo", "Sanchez", "Espinoza", "Trejos", "Rojas"};
+        return lista[random(23)];
+    }
+    
+    public static String getTitle(){
+        String lista[] = {"Informática", "Administración", "Inglés", "Turismo", "Agronomía", 
+                          "Diseño Publicitario", "Diseño Web", "Asesor", "Doctor", "Abogado"};     
+        return lista[random(9)];
     }
 }

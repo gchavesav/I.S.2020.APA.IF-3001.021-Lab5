@@ -29,8 +29,7 @@ public class Employee {
 
         
     public int getAge(){
-        //return Utility.getAge(birthday);
-        return 0; //se debe modificar y eliminar esto
+        return Utility.getAge(birthday);
     }
 
     public int getId() {
@@ -76,9 +75,14 @@ public class Employee {
     @Override
     public String toString(){
 	String	result  = "(Cedula)"+id +"/ (Nombre)"+lastname+", "+firstname
-                        + " /(Fecha nac.)"+Utility.dateFormat(birthday)+ " /(Profesion)"+title;
-                        //+" /(Edad)"+Utility.getAge(birthday);
+                        + " /(Fecha nac.)"+Utility.dateFormat(birthday)+ " /(Profesion)"+title
+                        +" /(Edad)"+Utility.getAge(birthday);
 	return result;
+    }
+    
+    public String show(){
+        return lastname+","+firstname;
+        
     }
     
 }

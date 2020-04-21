@@ -280,10 +280,10 @@ public class CircularLinkedList implements List {
 
     @Override
     public String toString() {
-        String result="Circular Linked List: ";
+        String result="Circular Linked List:\n";
         Node aux = first;
         while(aux!=last){
-            result +=aux.data+", ";
+            result +=aux.data+"\n";
             aux = aux.next;
         }
         //se sale del while cuando aux==last
@@ -292,4 +292,29 @@ public class CircularLinkedList implements List {
         return result;
     }
     
+    public String show() {
+        String result = "";
+        Node aux = first;
+        while(aux!=last){
+            result+=aux.data+"\n";
+            aux = aux.next; //lo movemos al sgte nodo
+        }
+        //se sale cuando aux==last
+        //agregamos la info del ultimo nodo
+        return result+aux.data;
+    }
+    
+    public String show2() {
+        String result = "";
+        Node aux = first;
+        while(aux!=last){
+            //result+=aux.data+"\n";
+            Employee e = (Employee)aux.data;
+            result+=e.show()+"\n";
+            aux = aux.next; //lo movemos al sgte nodo
+        }
+        //se sale cuando aux==last
+        //agregamos la info del ultimo nodo
+        return result+aux.data;
+    }
 }

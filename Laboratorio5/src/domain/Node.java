@@ -19,6 +19,11 @@ public class Node {
         this.data = data;
         this.next = this.prev = null;
     }
+    
+    //Constructor sobrecargado
+    public Node(){
+        this.prev = this.next = null;
+    }
 
     public Object getData() {
         return data;

@@ -280,7 +280,7 @@ public class CircularDoublyLinkedList implements List {
             i++;
             aux = aux.next; //lo movemos al sgte nodo
         }
-        //se sale cuyando aux==last
+        //se sale cuando aux==last
         if(Utility.equals(i, index)){
             return aux;
         }
@@ -291,16 +291,15 @@ public class CircularDoublyLinkedList implements List {
     public String toString() {
         String result = "\nCircular Doubly Linked List\n";
         Node aux = first;
-        int count=1;
         while(aux!=last){
-            result+=aux.data+", ";
+            result+=aux.data+"\n";
             //result+="\n"+aux.data;
             aux = aux.next; //lo movemos al sgte nodo
         }
         //se sale cuando aux==last
         //agregamos la info del ultimo nodo
         return aux!=null
-                ?result+", "+aux.data
+                ?result+"\n"+aux.data
                 :"\nCircular Doubly Linked List is Empty!!!\n";
     }
 
