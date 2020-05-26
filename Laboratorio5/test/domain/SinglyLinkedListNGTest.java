@@ -20,15 +20,30 @@ public class SinglyLinkedListNGTest {
     }
 
     @Test
-    public void testSomeMethod() {
+    public void test1() {
         try {
             SinglyLinkedList list = new SinglyLinkedList();
-            for (int i = 0; i < 100; i++) {
-                list.add(util.Utility.random(999));
+            for (int i = 0; i < 1000; i++) {
+                list.add(util.Utility.getFirstName());
             }
             System.out.println(list);
             list.sort();
-            System.out.println(list.toString());
+            System.out.println("LISTA ORDENADA(STRING): "+list.show());
+        } catch (ListException ex) {
+            Logger.getLogger(SinglyLinkedListNGTest.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    @Test
+    public void test2() {
+        try {
+            SinglyLinkedList list = new SinglyLinkedList();
+            for (int i = 0; i < 1000; i++) {
+                list.add(util.Utility.random(500));
+            }
+            System.out.println(list);
+            list.sort();
+            System.out.println("LISTA ORDENADA(INTEGER): "+list.show());
         } catch (ListException ex) {
             Logger.getLogger(SinglyLinkedListNGTest.class.getName()).log(Level.SEVERE, null, ex);
         }

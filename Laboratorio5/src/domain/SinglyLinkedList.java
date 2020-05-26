@@ -149,32 +149,58 @@ public class SinglyLinkedList implements List {
         return element;
     }
 
+
     @Override
     public void sort() throws ListException {
-        if(this.isEmpty()){
+        if(isEmpty())
             throw new ListException("Singly Linked List is Empty");
-        }
-        //Utilizamos el principio de la burbuja para ordenar
-        int n = size();
-        for(int i=2;i<=n;i++)
-            for(int j=1;j<=n-i;j++){
-                if(getNode(j)==null || getNode(j+1)==null) break; //rompemos el ciclo
-                if(util.Utility.greaterT(getNode(j).data,getNode(j+1).data)){
-                    Object aux=getNode(j).data;
-                    getNode(j).data = getNode(j+1).data;
-                    getNode(j+1).data = aux;
-		}//if
-            }//for j
-//        for(int i=1;i<=size();i++)
-//            for(int j=i+1;j<=size();j++){
-//                if(getNode(j)==null || getNode(j+1)==null) break; //rompemos el ciclo
-//                if(util.Utility.greaterT(getNode(i).data,getNode(j).data)){
-//                    Object aux=getNode(j).data;
-//                    getNode(j).data=getNode(i).data;
-//                    getNode(i).data=aux;
-//		}//if
-//            }//for j
+        Node prevAux = first; //auxiliar anterior
+        Node aux1 = first;
+        Node aux2 = first.next;
+        while(aux1!=null){
+            while(aux2!=null){
+                if(util.Utility.greaterT(aux1.data, aux2.data)){
+                    //El elemento del primer nodo es el apuntado por inicio
+                    if(aux1==first){
+                        first = swapNodes(first, aux2);
+                        prevAux=aux1=first; //para actualizar
+                    }//if
+                    else{ //significa que no es el primer nodo de la lista
+                        aux1 = swapNodes(aux1, aux2);
+                        prevAux.next=aux1; //para mantener todo conectado
+                    }//else
+                    aux2=aux1; //actualizo enlaces
+                }//if
+                aux2 = aux2.next;
+            }//while aux2
+            prevAux = aux1; //dejamos un rastro en el nodo anterior
+            aux1 = aux1.next;
+            if(aux1==null) break; //rompe el while aux1
+            aux2 = aux1.next;
+       }//while aux1
     }
+    
+    /***
+     *swapNodes (cambia los enlaces los nodos dados)
+     * cambia los enlaces de los nodos
+     * 
+     */
+    private Node swapNodes(Node node1, Node node2){
+        //si nodo1 y nodo2 son consecutivos
+        if(node1.next==node2){
+            node1.next = node2.next;
+            node2.next = node1;
+        }else{
+            Node aux=node1;
+            while(aux.next!=node2){
+                aux=aux.next;
+            }
+            aux.next=node2.next;
+            node2.next=node1;
+        }
+        return node2; 
+    }
+    
 
     @Override
     public int indexOf(Object element) throws ListException {
@@ -269,6 +295,16 @@ public class SinglyLinkedList implements List {
             aux = aux.next;
         }
         return null; //si llega aqui, quiere decir q no encontro el nodo
+    }
+    
+    public String show() {
+        String result="Singly Linked List: ";
+        Node aux = first;
+        while(aux!=null){
+            result +="\n"+aux.data;
+            aux = aux.next;
+        }
+        return result;
     }
 
     @Override
