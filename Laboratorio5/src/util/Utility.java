@@ -109,7 +109,7 @@ public class Utility {
     //greater than (mayorQ)
     public static boolean greaterT(Object a, Object b){
         switch(instanceOf(a, b)){
-            case "entero":
+            case "integer":
                 Integer x=(Integer) a; Integer y=(Integer) b;
                 return x>y;
             case "string":

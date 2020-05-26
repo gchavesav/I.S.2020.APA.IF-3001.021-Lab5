@@ -151,7 +151,29 @@ public class SinglyLinkedList implements List {
 
     @Override
     public void sort() throws ListException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(this.isEmpty()){
+            throw new ListException("Singly Linked List is Empty");
+        }
+        //Utilizamos el principio de la burbuja para ordenar
+        int n = size();
+        for(int i=2;i<=n;i++)
+            for(int j=1;j<=n-i;j++){
+                if(getNode(j)==null || getNode(j+1)==null) break; //rompemos el ciclo
+                if(util.Utility.greaterT(getNode(j).data,getNode(j+1).data)){
+                    Object aux=getNode(j).data;
+                    getNode(j).data = getNode(j+1).data;
+                    getNode(j+1).data = aux;
+		}//if
+            }//for j
+//        for(int i=1;i<=size();i++)
+//            for(int j=i+1;j<=size();j++){
+//                if(getNode(j)==null || getNode(j+1)==null) break; //rompemos el ciclo
+//                if(util.Utility.greaterT(getNode(i).data,getNode(j).data)){
+//                    Object aux=getNode(j).data;
+//                    getNode(j).data=getNode(i).data;
+//                    getNode(i).data=aux;
+//		}//if
+//            }//for j
     }
 
     @Override

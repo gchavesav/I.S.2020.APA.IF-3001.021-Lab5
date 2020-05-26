@@ -7,8 +7,6 @@ package main;
 
 import domain.CircularLinkedList;
 import domain.ListException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
